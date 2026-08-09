@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ha Thi-Hoang DO | Finance & Structuring</title>
+<meta name="description" content="Portfolio of Ha Thi-Hoang DO — Master's in Finance, Paris Dauphine PSL. Trading, structuring, and quantitative finance projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --navy-light:#13294b;
+    --gold:#b8935a;
+    --gold-light:#d9b98a;
+    --cream:#f7f5f0;
+    --white:#ffffff;
+    --ink:#1c2733;
+    --muted:#5c6b7a;
+    --border:#e4e0d6;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(247,245,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;}
+  .brand{font-family:'Playfair Display',serif;font-weight:600;font-size:1.15rem;color:var(--navy);letter-spacing:0.3px;}
+  .navlinks{display:flex;gap:30px;list-style:none;}
+  .navlinks a{font-size:0.88rem;font-weight:500;color:var(--navy-light);letter-spacing:0.3px;text-transform:uppercase;transition:color .2s;}
+  .navlinks a:hover{color:var(--gold);}
+  .navtoggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--navy);cursor:pointer;}
+
+  /* HERO */
+  header.hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-light) 65%,#1a3358 100%);
+    color:var(--white);
+    padding:100px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;right:-120px;top:-120px;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,147,90,0.18) 0%,transparent 70%);
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .eyebrow{
+    color:var(--gold-light);
+    font-size:0.82rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  header.hero h1{color:var(--white);font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.15;margin-bottom:16px;}
+  header.hero .subtitle{font-size:1.15rem;color:#c7d1de;max-width:600px;margin-bottom:28px;font-weight:400;}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+  .tag{
+    border:1px solid rgba(217,185,138,0.5);
+    color:var(--gold-light);
+    padding:6px 14px;
+    border-radius:100px;
+    font-size:0.8rem;
+    letter-spacing:0.3px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn{
+    display:inline-block;
+    padding:12px 26px;
+    border-radius:4px;
+    font-size:0.9rem;
+    font-weight:600;
+    letter-spacing:0.3px;
+    transition:all .2s;
+  }
+  .btn-primary{background:var(--gold);color:var(--navy);}
+  .btn-primary:hover{background:var(--gold-light);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.35);color:var(--white);}
+  .btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light);}
+
+  /* SECTIONS */
+  section{padding:80px 0;}
+  section.alt{background:var(--white);}
+  .section-head{margin-bottom:44px;}
+  .section-label{color:var(--gold);font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+  .section-head p.lead{color:var(--muted);max-width:640px;margin-top:12px;font-size:1rem;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:start;}
+  .about-grid p{color:var(--ink);margin-bottom:16px;font-size:1.02rem;}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .fact{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:18px 20px;}
+  .fact .num{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy);font-weight:700;}
+  .fact .label{font-size:0.8rem;color:var(--muted);margin-top:4px;letter-spacing:0.2px;}
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative;padding-left:32px;border-left:2px solid var(--border);}
+  .titem{position:relative;padding-bottom:42px;}
+  .titem:last-child{padding-bottom:0;}
+  .titem::before{
+    content:"";position:absolute;left:-38px;top:4px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:3px solid var(--cream);
+  }
+  section.alt .titem::before{border-color:var(--white);}
+  .titem .role-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:4px;}
+  .titem h3{font-size:1.15rem;}
+  .titem .dates{font-size:0.85rem;color:var(--gold);font-weight:600;white-space:nowrap;}
+  .titem .org{color:var(--muted);font-size:0.92rem;font-style:italic;margin-bottom:10px;}
+  .titem ul{padding-left:20px;color:var(--ink);}
+  .titem li{margin-bottom:6px;font-size:0.96rem;}
+
+  /* EDUCATION */
+  .edu-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-left:4px solid var(--gold);
+    border-radius:6px;
+    padding:26px 28px;
+    margin-bottom:20px;
+  }
+  section.alt .edu-card{background:var(--cream);}
+  .edu-card .role-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline;}
+  .edu-card h3{font-size:1.15rem;}
+  .edu-card .dates{font-size:0.85rem;color:var(--gold);font-weight:600;}
+  .edu-card .org{color:var(--muted);font-size:0.92rem;margin:2px 0 10px;}
+  .edu-card .rank{display:inline-block;font-size:0.78rem;font-weight:600;color:var(--navy);background:rgba(184,147,90,0.15);padding:3px 10px;border-radius:100px;margin-bottom:10px;}
+  .edu-card p{font-size:0.92rem;color:var(--ink);}
+
+  /* PROJECTS */
+  .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .pcard{
+    background:var(--cream);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    transition:transform .2s, box-shadow .2s;
+  }
+  section.alt .pcard{background:var(--white);}
+  .pcard:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(11,31,58,0.08);}
+  .pcard .ptag{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px;}
+  .pcard h3{font-size:1.12rem;margin-bottom:8px;line-height:1.35;}
+  .pcard .pmeta{font-size:0.82rem;color:var(--muted);margin-bottom:14px;}
+  .pcard p{font-size:0.92rem;color:var(--ink);flex-grow:1;margin-bottom:14px;}
+  .pcard .ptools{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-size:0.72rem;background:rgba(11,31,58,0.06);color:var(--navy-light);padding:4px 10px;border-radius:100px;font-weight:500;}
+  .pcard-link{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:16px;padding-top:14px;
+    border-top:1px solid var(--border);
+    font-size:0.85rem;font-weight:600;color:var(--navy);
+    transition:color .2s, gap .2s;
+  }
+  .pcard-link:hover{color:var(--gold);gap:9px;}
+  .pcard-link .arrow{transition:transform .2s;}
+  .pcard-link:hover .arrow{transform:translateX(2px);}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .skill-block h4{font-size:0.95rem;color:var(--navy);margin-bottom:14px;letter-spacing:0.3px;}
+  .skill-block .chip{margin:0 6px 8px 0;display:inline-block;}
+  .cert-list{list-style:none;}
+  .cert-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:0.92rem;}
+  .cert-list li:last-child{border-bottom:none;}
+  .cert-list .cname{font-weight:600;color:var(--navy);display:block;margin-bottom:2px;}
+  .cert-list .cdesc{color:var(--muted);font-size:0.85rem;}
+
+  /* CONTACT / FOOTER */
+  footer{
+    background:var(--navy);
+    color:#c7d1de;
+    padding:64px 0 30px;
+  }
+  footer h2{color:var(--white);font-size:1.9rem;margin-bottom:12px;}
+  footer p.lead{color:#a9b6c5;max-width:520px;margin-bottom:32px;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:44px;}
+  .contact-item{display:flex;align-items:center;gap:10px;font-size:0.95rem;}
+  .contact-item .ic{
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(184,147,90,0.15);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);font-size:1rem;
+    flex-shrink:0;
+  }
+  .contact-item a{color:var(--white);font-weight:500;}
+  .contact-item a:hover{color:var(--gold-light);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;font-size:0.8rem;color:#7c8b9c;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  @media (max-width:820px){
+    .about-grid{grid-template-columns:1fr;}
+    .project-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .navlinks{
+      position:absolute;top:66px;left:0;right:0;
+      background:var(--cream);
+      flex-direction:column;
+      padding:16px 28px;
+      gap:16px;
+      border-bottom:1px solid var(--border);
+      display:none;
+    }
+    .navlinks.open{display:flex;}
+    .navtoggle{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Ha Thi-Hoang DO</a>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="navtoggle" id="navtoggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Paris, France</div>
+    <h1>Ha Thi-Hoang DO</h1>
+    <p class="subtitle">Master's in Finance candidate at Paris Dauphine &dash; PSL, specializing in Investment Banking &amp; Financial Markets. CFA Level III candidate with hands-on experience in trading, structuring, and risk management.</p>
+    <div class="tags">
+      <span class="tag">Trading</span>
+      <span class="tag">Structuring</span>
+      <span class="tag">Sales</span>
+      <span class="tag">Structured Products</span>
+      <span class="tag">Quantitative Finance</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">View my work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">About</div>
+      <h2>Finance, structured around rigor and curiosity</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I'm currently completing my Master's in Finance at Paris Dauphine &dash; PSL University (ranked 1st/22, GPA 4.0/4.0), specializing in Investment Banking and Financial Markets. My path has taken me across three apprenticeships spanning cross-asset sales and structuring, risk management, and financial accounting &dash; giving me a broad, practical view of how markets, products, and controls fit together.</p>
+        <p>I'm a CFA Level III candidate, and I enjoy the quantitative side of finance as much as the market-facing side: calibrating volatility surfaces, back-testing trading strategies, and modelling structured product payoffs. Outside of coursework, I build automation tools in Python, R, and VBA to make analysis faster and more reliable.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="num">1st / 22</div><div class="label">Master's ranking, Paris Dauphine</div></div>
+        <div class="fact"><div class="num">4.0</div><div class="label">GPA (Master's &amp; Bachelor's)</div></div>
+        <div class="fact"><div class="num">3</div><div class="label">Finance apprenticeships</div></div>
+        <div class="fact"><div class="num">CFA III</div><div class="label">Candidate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Experience</div>
+      <h2>Professional experience</h2>
+      <p class="lead">Three years of apprenticeships across structuring, risk, and accounting &dash; each building a different lens on how a financial institution operates.</p>
+    </div>
+    <div class="timeline">
+      <div class="titem">
+        <div class="role-row">
+          <h3>Cross Asset Solutions Sales Apprentice</h3>
+          <span class="dates">Sept. 2025 &dash; Aug. 2025</span>
+        </div>
+        <div class="org"><a href="https://www.unicreditgroup.eu/en.html" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:2px;">UniCredit</a> &middot; Paris, France</div>
+        <ul>
+          <li>Modelled cash-flow payoffs of structured products (autocallables, reverse convertibles, range accruals, collared floaters) in collaboration with Trading and Structuring.</li>
+          <li>Performed daily P&amp;L valuation and consistency checks for Total Return Swaps (TRS), identifying and escalating discrepancies to the trading desk.</li>
+          <li>Monitored interest rates, yield curves, FX rates, and equity markets daily via Bloomberg Terminal to support trade pricing and risk assessment.</li>
+          <li>Developed automated tools including a VBA ISDA/FBF-term sheet generator and a Power Query dashboard for Euronext price tracking.</li>
+          <li>Processed corporate actions, client onboarding, and lifecycle event checks to ensure compliance.</li>
+        </ul>
+      </div>
+      <div class="titem">
+        <div class="role-row">
+          <h3>Risk Management Apprentice</h3>
+          <span class="dates">Sept. 2024 &dash; Sept. 2025</span>
+        </div>
+        <div class="org">Groupe Amundi | <a href="https://www.societegeneralegestion.fr/fra/fr/particuliers" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:2px;">Soci&eacute;t&eacute; G&eacute;n&eacute;rale Gestion</a> &middot; Paris, France</div>
+        <ul>
+          <li>Conducted stress tests and back-testing to assess liquidity risk and credit spread sensitivities across multi-asset portfolios; produced scenario analyses for senior risk managers.</li>
+          <li>Reported performance, AUM, and market effects of over 300 portfolios across Equity, Bonds, Money Market, Derivatives, and more.</li>
+          <li>Automated recurring VBA-based controls and reporting workflows, cutting manual processing time for daily risk indicator monitoring (VaR, Volatility, Tracking Error).</li>
+          <li>Developed tools to ensure accurate implementation of investment strategies across client mandates.</li>
+          <li>Tracked market fluctuations across 100+ Bloomberg indices to produce market risk reports.</li>
+        </ul>
+      </div>
+      <div class="titem">
+        <div class="role-row">
+          <h3>Financial Accounting Apprentice</h3>
+          <span class="dates">Sept. 2023 &dash; Sept. 2024</span>
+        </div>
+        <div class="org"><a href="https://www.fr.abbott" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:2px;">Abbott Medical France</a> &middot; Issy-les-Moulineaux, France</div>
+        <ul>
+          <li>Coordinated monthly and annual closings with Ireland and India hubs on an average turnover of &euro;360M+.</li>
+          <li>Tracked expenses across 5 cost centers under IFRS and PCG consolidation standards.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Education</div>
+      <h2>Academic background</h2>
+    </div>
+    <div class="edu-card">
+      <div class="role-row">
+        <h3>Master's in Finance &dash; Investment Banking &amp; Financial Markets</h3>
+        <span class="dates">Sept. 2024 &dash; Dec. 2027</span>
+      </div>
+      <div class="org"><a href="https://dauphine.psl.eu" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:2px;">Paris Dauphine &dash; PSL University</a></div>
+      <span class="rank">Rank 1st / 22 &middot; GPA 4.0 / 4.0</span>
+      <p>Core coursework: Fixed Income, Structured Products, Econometrics and Time Series, Stochastic Calculus, Derivatives, Python.</p>
+    </div>
+    <div class="edu-card">
+      <div class="role-row">
+        <h3>Bachelor's in Management (Apprenticeship Track)</h3>
+        <span class="dates">Sept. 2023 &dash; June 2024</span>
+      </div>
+      <div class="org"><a href="https://dauphine.psl.eu" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:2px;">Paris Dauphine &dash; PSL University</a></div>
+      <span class="rank">Rank 2nd / 28 &middot; GPA 4.0 / 4.0</span>
+      <p>Core coursework: Corporate Finance, Financial Mathematics, Statistics, Python, Financial Modeling (VBA).</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Master's Projects</div>
+      <h2>Academic &amp; applied finance work</h2>
+      <p class="lead">A selection of projects from my Master's coursework at Paris Dauphine, spanning derivatives pricing, fixed income strategy, econometrics, and quantitative trading.</p>
+    </div>
+    <div class="project-grid">
+
+      <div class="pcard">
+        <div class="ptag">Stochastic Calculus</div>
+        <h3>Local Volatility Surface Calibration &dash; SX5E</h3>
+        <div class="pmeta">Individual project &middot; June 2026</div>
+        <p>Calibrated two parametric families (polynomial and exponential) of local volatility surfaces on Euro Stoxx 50 (SX5E) index options using least-squares optimisation in Python. Built the risk-neutral market structure from Bloomberg option data and the &euro;STR risk-free curve, then stress-tested the calibrated surfaces on exotic payoffs including barrier and Asian options to assess model robustness and biases.</p>
+        <div class="ptools">
+          <span class="chip">Python</span>
+          <span class="chip">Local Volatility</span>
+          <span class="chip">Bloomberg</span>
+          <span class="chip">Least-Squares Optimisation</span>
+        </div>
+        <a class="pcard-link" href="projects/local-volatility-calibration.pdf" target="_blank" rel="noopener">View full report (PDF) <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <div class="pcard">
+        <div class="ptag">Structured Products &middot; Trading Idea</div>
+        <h3>Exotic Equity Derivatives: 10Y Phoenix Worst-Of on SPX &amp; SX5E</h3>
+        <div class="pmeta">Team project&middot; Q4 2015 case study</div>
+        <p>Designed a trade idea in response to the August 2015 volatility shock (Shanghai Composite crash, VIX/VSTOXX spiking above 45&dash;53): a 10-year Phoenix Worst-Of autocallable on SPX and SX5E with an 80% coupon/put-down-in barrier, monetising the post-crash volatility spike and the low SPX/SX5E correlation (0.52 vs. 0.65 historical average) to enhance the conditional coupon while buffering against moderate drawdowns.</p>
+        <div class="ptools">
+          <span class="chip">Autocallables</span>
+          <span class="chip">Worst-Of Structures</span>
+          <span class="chip">Volatility</span>
+          <span class="chip">Macro Analysis</span>
+        </div>
+        <a class="pcard-link" href="projects/exotic-derivatives-trade-idea.pdf" target="_blank" rel="noopener">View full report (PDF) <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <div class="pcard">
+        <div class="ptag">Fixed Income &middot; Trading Idea</div>
+        <h3>US Rates: Trading the Policy Gap into a Bear Steepener</h3>
+        <div class="pmeta">Team project &middot; Late-2018 case study</div>
+        <p>Built a fixed income trade idea around Deutsche Bank's "policy gap" framework in late 2018 &dash; the spread between long-term rates and shadow policy rates. With US growth near potential, unemployment at 3.7%, and the policy gap historically tight, the thesis argued for a reopening via the long end, favouring a bear-steepening position on the US Treasury curve.</p>
+        <div class="ptools">
+          <span class="chip">Rates Strategy</span>
+          <span class="chip">Yield Curve</span>
+          <span class="chip">Macro Analysis</span>
+          <span class="chip">Fed Policy</span>
+        </div>
+        <a class="pcard-link" href="projects/fixed-income-trade-idea.pdf" target="_blank" rel="noopener">View full report (PDF) <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <div class="pcard">
+        <div class="ptag">Econometrics</div>
+        <h3>Event Study: Impact of Corporate &amp; Market Events on NVIDIA Returns</h3>
+        <div class="pmeta">Team project</div>
+        <p>Ran an event-study analysis on NVIDIA's daily returns using a market model regressed against the S&amp;P 500. Tested abnormal returns around quarterly earnings releases (Q1 2023, FY2023), NVIDIA becoming the world's largest company by market cap (June 2024), and antitrust/AI-chip-delay news, then examined spillover effects onto other major tech stocks, with full estimation/event window methodology implemented in Stata.</p>
+        <div class="ptools">
+          <span class="chip">Event Study</span>
+          <span class="chip">Regression</span>
+          <span class="chip">Stata</span>
+          <span class="chip">Equity Markets</span>
+        </div>
+        <a class="pcard-link" href="projects/nvidia-event-study.pdf" target="_blank" rel="noopener">View full report (PDF) <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <div class="pcard">
+        <div class="ptag">International Finance</div>
+        <h3>Carry Trade &amp; Momentum Strategies: Literature Review &amp; Back-Test</h3>
+        <div class="pmeta">Team project &middot; April 2025</div>
+        <p>Reviewed the evolution of carry trade performance from its discovery through the 2008 financial crisis and beyond, then back-tested carry trade and momentum strategies across 22 currencies over 7,000 trading days. Optimised portfolio construction and rebalancing rules, achieving a +8% annualised return in the strategy back-test.</p>
+        <div class="ptools">
+          <span class="chip">Carry Trade</span>
+          <span class="chip">Momentum</span>
+          <span class="chip">FX</span>
+          <span class="chip">Back-Testing</span>
+        </div>
+        <a class="pcard-link" href="projects/carry-trade-momentum.pdf" target="_blank" rel="noopener">View full report (PDF) <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <div class="pcard">
+        <div class="ptag">Time Series Econometrics</div>
+        <h3>USD/EUR Exchange Rate Modelling &amp; Monetary Policy</h3>
+        <div class="pmeta">Individual / team project &middot; R</div>
+        <p>Modelled USD/EUR exchange rate dynamics using ARMA processes, validated with Augmented Dickey-Fuller and Ljung-Box diagnostics in R. Identified autoregressive persistence and inflation differentials as the key drivers of the pair, and produced short-term directional forecasts grounded in the fitted model.</p>
+        <div class="ptools">
+          <span class="chip">ARMA</span>
+          <span class="chip">R</span>
+          <span class="chip">ADF Test</span>
+          <span class="chip">FX Forecasting</span>
+        </div>
+        <a class="pcard-link" href="projects/usd-eur-exchange-rate-modelling.html" target="_blank" rel="noopener">View full report (HTML) <span class="arrow">&rarr;</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Skills &amp; Certifications</div>
+      <h2>Tools, competencies &amp; credentials</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4>Technical Tools</h4>
+        <div>
+          <span class="chip">Python</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">Numpy</span>
+          <span class="chip">Regression</span>
+          <span class="chip">Calculus Stochastic</span>
+          <span class="chip">R</span>
+          <span class="chip">Excel VBA / Solver</span>
+          <span class="chip">Bloomberg Terminal</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Power Query</span>
+          <span class="chip">Stata</span>
+        </div>
+        <h4 style="margin-top:22px;">Core Competencies</h4>
+        <div>
+          <span class="chip">Quantitative &amp; Statistical Analysis</span>
+          <span class="chip">Financial Modeling</span>
+          <span class="chip">Back-Testing</span>
+        </div>
+        <h4 style="margin-top:22px;">Languages</h4>
+        <div>
+          <span class="chip">French &dash; Native</span>
+          <span class="chip">English &dash; Fluent</span>
+          <span class="chip">Vietnamese &dash; Native</span>
+        </div>
+      </div>
+      <div class="skill-block" style="grid-column:span 2;">
+        <h4>Certifications</h4>
+        <ul class="cert-list">
+          <li>
+            <span class="cname">CFA Level III Candidate</span>
+            <span class="cdesc">Derivatives pricing &amp; risk management, fixed income &amp; derivatives pricing, macro analysis, portfolio construction, quantitative methods, trading strategy &amp; execution, IFRS.</span>
+          </li>
+          <li>
+            <span class="cname">Amplify Finance Accelerator</span>
+            <span class="cdesc">Simulated asset management with Morgan Stanley and equity trading with UBS.</span>
+          </li>
+          <li>
+            <span class="cname">Bloomberg Market Concepts</span>
+            <span class="cdesc">Bloomberg's foundational certification covering economics, currencies, fixed income, and equities.</span>
+          </li>
+          <li>
+            <span class="cname">AMF Certification</span>
+            <span class="cdesc">French financial markets regulator certification.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-label" style="color:var(--gold-light);"></div>
+    <h2>Contact</h2>
+    <p class="lead">Open to conversations about sales, trading and structuring opportunities. Feel free to reach out.</p>
+    <div class="contact-row">
+      <div class="contact-item">
+        <span class="ic">&#9993;</span>
+        <a href="mailto:thi-hoang-ha.do@dauphine.eu">thi-hoang-ha.do@dauphine.eu</a>
+      </div>
+      <div class="contact-item">
+        <span class="ic">in</span>
+        <a href="https://www.linkedin.com/in/dothihoangha110/" target="_blank" rel="noopener">Do Thi Hoang Ha</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Ha Thi-Hoang DO.</span>
+      <span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navtoggle').addEventListener('click', function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.navlinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navlinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

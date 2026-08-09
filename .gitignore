@@ -1,0 +1,20 @@
+# Ignore everything by default; only the portfolio site files below are tracked
+*
+
+# Allow traversal into directories
+!*/
+
+# Site files
+!.gitignore
+!index.html
+!README.md
+
+# Project reports (PDF/HTML/etc.)
+!projects/
+!projects/**
+
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.vscode/
+.idea/
